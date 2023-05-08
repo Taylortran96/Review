@@ -228,29 +228,50 @@ Số lần bạn đoán là: ${count}
 
 //Bài 20: Find the sum of all elements.
 const arr1 = [1, 2, 3, 4, 5];
+const sum = arr1.reduce((acc, curr) => acc + curr, 0);
+console.log(sum); // Output: 15
 
 //Bài 21: Remove duplicates from an array.
 let arr2 = [1, 2, 2, 4, 5, 5, 6];
+let removedDuplicates = [...new Set(arr2)];
+console.log(removedDuplicates);  // Kết quả: [1, 2, 4, 5, 6]
 
-//Bài 22: Find the index of a specific element in an array.
+
+//Bài 22: Find the index of a specific element in an array. //dùng indexOf để tìm kiếm phần tử
 const arr3 = ['iOS', 'Android', 'WindowPhone'];
+const index = arr3.indexOf('Android');
+console.log(index); // Kết quả: 1
+
 
 //Bài 22: Reverse an array.
 const arr4 = [1, 2, 3, 4, 5, 6];
+const reversed = arr4.reverse();
+console.log(reversed)
 
 //Bài 23: Filter out even numbers from an array.
 const arr5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const evenNumbers= arr5.filter(number5 => number5 % 2 === 0);
+console.log(evenNumbers)
 
 //Bài 24: Find the maximum and minimum values in an array of numbers.
-const arr6 = [1, -3, 99, 120, 50, 15];
+const arr6 = [1, -3, 99, 120, 50, 15];\
+const max = Math.max(...arr6);
+const min = Math.min(...arr6);
+console.log(max, min); // Kết quả: 120 -3
 
 //Bài 25: Find the common elements between two arrays.
 const arr7 = [1, 2, 3, 5, 9];
 const arr8 = [2, 4, 1, 9, 0];
+const commonElements = arr7.filter(num => arr8.includes(num));
+console.log(commonElements); // Kết quả: [1, 2, 9]
+// `filter()` để lọc ra các phần tử từ mảng đầu tiên (chứa các phần tử chung).
+// `includes()` kiểm tra xem phần tử đó có nằm trong mảng thứ hai không
 
 //Bài 26: Map an array of numbers to their squares.
 const arr9 = [1, 2, 3, 4, 5];
-
+const squaredNumbers = arr9.map(num => num ** 2);
+console.log(squaredNumbers); // Kết quả: [1, 4, 9, 16, 25]
+// `map()` để áp dụng một hàm đến từng phần tử của mảng, sẽ không thay đổi mảng gốc, và trả về một mảng mới với các giá trị đã được áp dụng hàm đó
 
 // ==============================================================================
 // ARRAY
@@ -388,9 +409,6 @@ const developers = [
         return totalAge;
       }
        
-
-
-
 
 //Câu 5:Viết function tổng hợp tất cả các skills của tất cả developers trong mảng 
     //Cách 1:
