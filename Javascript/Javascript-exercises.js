@@ -73,6 +73,13 @@ const greeting = `Hello, My name is ${myName}, ${myAge} years old!`;
 // Bài 4: Kiểm tra trong biến greeting có tồn tại từ "Hello" hay không, không phân biệt chữ hoa chữ thường, in ra kết quả
 console.log("check Hello: ", greeting.toLowerCase().includes('HeLlo'.toLowerCase()));
 
+const greeting = 'Welcome to the world!';
+if (greeting.toLowerCase().includes('hello')) {
+  console.log('Tồn tại từ "Hello" trong biến greeting.');
+} else {
+  console.log('Không tồn tại từ "Hello" trong biến greeting.');
+}
+
 // Bài 5: Tạo biến sayHi thay thể "Hello" trong greeting thành "Hi", in ra màn hình
 const sayHi = greeting.replace("Hello", "Hi");
 console.log("sayHi: ", sayHi);
@@ -165,7 +172,7 @@ console.log(result);
         function numberOneTriangle(number){
             //in ra số cột (là number) => dòng for để xuống dòng
             for (let i = 1; i<= number;i++){ 
-                let str = "";
+                let str = ""; //là một chuỗi rỗng là rất cần thiết để tránh việc mất mát các dấu sao khi kết thúc mỗi vòng lặp bên trong
                 //chạy the hàng ngang, theo hướng tăng dần
                 for (let j =0; j < i; j++) {
                     str += "*";
