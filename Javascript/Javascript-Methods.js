@@ -221,8 +221,6 @@ console.log(beasts.indexOf('giraffe'));  // > -1
     console.log(set1); // Set(2) {b, c}
 
 
-
-
 //13. Array.copyWithin:
 array.copyWithin(target, start, end)
  /*Trong đó:
@@ -246,7 +244,6 @@ array.copyWithin(target, start, end)
 /*14. Array.Every: 
 - kiểm tra các phần tử xem có thoả mãn điều kiện 
 - TẤt cả phần tử phải thoả mãn thì True */
-
 
 
 /*19. CallBack
