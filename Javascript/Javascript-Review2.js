@@ -184,7 +184,7 @@ console.log(beasts.indexOf('giraffe'));  // > -1
     //Ví dụ:
     let array = ['a', 'b', 'c'];
     array.forEach(function(element) {
-    console.log(element);
+        console.log(element);
     });
     //KQ:
     // > "a"
