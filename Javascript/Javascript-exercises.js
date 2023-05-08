@@ -314,7 +314,7 @@ const developers = [
         skills: ['Assembly', 'C', 'C++']
     }
 ];
-//Câu 1:
+//Câu 1:  Viết function tìm ra developer lớn tuổi nhất
     //Cách 1:
     function oldestDev() {
         let _oldestDev = developers[0];
@@ -346,7 +346,7 @@ const developers = [
         return oldestDeveloper;
       }
       
-//Câu 2:
+//Câu 2: Viết function trả về danh sách developer đã được sắp xếp theo tuổi từ thấp đến cao
     //Cách 1:
     console.log(developers.sort(function(a,b){return a['age']-b['age'];}));
 
@@ -357,7 +357,7 @@ const developers = [
         });
       }
       
-//Câu 3:
+//Câu 3: Viết function tìm ra những developer nam
     //Cách 1:
     const checkGender = (value)  => {
         return value['gender'] == "male";
@@ -371,7 +371,7 @@ const developers = [
         });
       }      
 
-//Câu 4:
+//Câu 4: Viết function tính tổng tuổi của tất cả developer
     //Cách 1:
     function totalAge() {
         let sum=0;
@@ -392,7 +392,7 @@ const developers = [
 
 
 
-//Câu 5:
+//Câu 5:Viết function tổng hợp tất cả các skills của tất cả developers trong mảng 
     //Cách 1:
     function getAllSkills(developers = []) {
         if (!Array.isArray(developers) || !developers.length) return;
@@ -431,7 +431,7 @@ const developers = [
       }
       
 
-//Câu 6:
+//Câu 6: Viết function tìm ra developer có nhiều skills nhất
     //Cách 1:
     function mostSkill() {
         let _mostSkill = developers[0]
@@ -453,7 +453,7 @@ const developers = [
       }
       
 
-//Câu 7:
+//Câu 7: Viết function tìm ra những developer nào có skill là JS
     //Cách 1:
     const skillJS = (dev) => {
         return dev['skills'].includes("JS");
@@ -468,7 +468,7 @@ const developers = [
       }
       
 
-//Câu 8:
+//Câu 8: Viết function tìm ra những developer có gender là male và có skill JS
     //Cách 1:
     const devMaleJS = (dev) => {
         return dev['skills'].includes("JS") && dev['gender'] == "male";
@@ -483,7 +483,7 @@ const developers = [
       }
       
 
-//Câu 9:
+//Câu 9: Viết function sắp xếp thứ tự developer có nhiều skill nhất -> ít nhất
     //Cách 1:
     console.log(developers.sort(function(a,b){return b['skills'].length-a['skills'].length;}));
 
