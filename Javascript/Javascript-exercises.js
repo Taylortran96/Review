@@ -541,3 +541,115 @@ const developers = [
         });
     }
     console.log(getGenderFiltered(developers));
+
+//====================================================================
+//Bài 1: Lọc các phần tử bị trùng trong users3
+const users = ["Thy","Hiếu", "Long"];
+const users2 = ["Quyên", ...users];
+const users3= [...users, ...users2];
+    //Cách 1:
+    const uniqueUsers = users3.filter((value, index, self) => self.indexOf(value) === index);
+    console.log(uniqueUsers); // ["Thy", "Hiếu", "Long", "Quyên"]
+
+    //Cách 2: dùng spread operator + Set
+    const uniqueUsers = [...new Set(users3)];
+    console.log(uniqueUsers);
+
+    //Cách 3: dùng vòng lặp
+    const uniqueUsers = [];
+    for (let i = 0; i < users3.length; i++) {
+    if (uniqueUsers.indexOf(users3[i]) === -1) {
+        uniqueUsers.push(users3[i]);
+    }}
+    console.log(uniqueUsers);
+
+
+
+// Viết function nhận vào ngày tháng năm sinh, sau đó trả về tuổi của người dung theo dạng: Tuổi của bạn là: 22 năm, 3 tháng, 20 ngày
+    //Cách 1:
+    let gettingAge = (str) => {
+        const dateTime = new Date(str).getTime();
+        const today = new Date().getTime();
+
+        const year = ((today - dateTime)/(365*24*60*60*1000)).toFixed(0)
+        const month = ((today - dateTime)/(30*24*60*60*1000)).toFixed(0)
+        const day = ((today - dateTime)/(24*60*60*1000)).toFixed(0)
+
+        console.log (`${year} năm, ${month} tháng, ${day - (month* 30)}ngày`);
+    }
+    gettingAge();
+    
+    //Cách 2:
+    function getAge(birthDateString) {
+        const today = new Date();
+        const birthDate = new Date(birthDateString);
+    
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+    
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+        }
+    
+        const year = age;
+        const month = monthDiff < 0 ? monthDiff + 12 : monthDiff;
+        const dayDiff = today.getDate() - birthDate.getDate();
+        const day = dayDiff < 0 ? dayDiff + 30 : dayDiff;
+    
+        return `Tuổi của bạn là: ${year} năm, ${month} tháng và ${day} ngày`;
+    }
+    console.log(getAge('1995-09-09')); // "Tuổi của bạn là: 28 năm, 8 tháng và 28 ngày"
+
+    //Cách 3:
+    function calculateAge(birthday) {
+        const today = new Date();
+        const birthDate = new Date(birthday);
+        const ageInDays = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
+        const ageInYears = Math.floor(ageInDays / 365);
+        const ageInMonths = Math.floor((ageInDays - (ageInYears * 365)) / 30);
+        const ageInDaysRemaining = ageInDays - (ageInYears * 365) - (ageInMonths * 30);
+      
+        return `Tuổi của bạn là: ${ageInYears} năm, ${ageInMonths} tháng, ${ageInDaysRemaining} ngày.`;
+      }
+      
+      console.log(calculateAge("1990-01-01"));
+
+    //Cách 4:
+    function calculateAge(birthday) {
+        const birthDate = new Date(birthday);
+        const today = new Date();
+        const ageInMilliseconds = today - birthDate;
+        
+        let ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+        ageInYears = Math.floor(ageInYears);
+        
+        let ageInMonths = (ageInMilliseconds % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30);
+        ageInMonths = Math.floor(ageInMonths);
+      
+        let ageInDays = (ageInMilliseconds % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24);
+        ageInDays = Math.floor(ageInDays);
+      
+        return `Tuổi của bạn là: ${ageInYears} năm, ${ageInMonths} tháng, ${ageInDays} ngày.`;
+      }
+      
+      console.log(calculateAge("1990-01-01"));
+      
+    //Cách 5:
+    //Cài đặt thư viện date-fns qua npm:
+    npm install date-fns
+
+    const { differenceInYears, differenceInMonths, differenceInDays } = require('date-fns')
+    function calculateAge(birthday) {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    const ageInYears = differenceInYears(today, birthDate);
+    const ageInMonths = differenceInMonths(today, birthDate) % 12;
+    const ageInDays = differenceInDays(today, birthDate) % 30;
+
+    return `Tuổi của bạn là: ${ageInYears} năm, ${ageInMonths} tháng, ${ageInDays} ngày.`;
+    }
+
+    console.log(calculateAge("1990-01-01"));
+
+      
+
