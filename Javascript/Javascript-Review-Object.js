@@ -77,14 +77,14 @@
             iphone7.takePhoto(); //KQ: "this" thể hiện object "iphone 7"
             iphone7.objChild.methodChild (); //KQ: "this" thể hiện "objchild" 
 
-    //3. Ví dụ 3: "this" tham chiếu tới đối tượng "global"
+    //4. Ví dụ 3: "this" tham chiếu tới đối tượng "global"
         function myFunction () {
             console.log (this)
             }
             myFunction(); //unidentified
             window.myFunction () //"this" thể hiện window
     
-    //4. Ví dụ 4: Hàm tạo - "this" trong hàm tạo là đại diện đối tượng sẽ được tạo
+    //5. Ví dụ 4: Hàm tạo - "this" trong hàm tạo là đại diện đối tượng sẽ được tạo
         function Car (name, color){
             this.name = name;
             this.color = color;
@@ -100,7 +100,6 @@
             name: "Porsche"
             } */
         console.log (Porsche.name) //KQ: Porsche
-        console.log (Porsche.run()); //KQ: sẽ trả về object- Porsche
 
 
 //6. 
