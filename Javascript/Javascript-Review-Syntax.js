@@ -151,9 +151,9 @@
 
 
 /*8. Array.reduce:
-- Phương thức giảm mảng xuống thành một giá trị duy nhất.
-- Phương thức reduce() thực thi một hàm được cung cấp cho mỗi giá trị của mảng (từ trái sang phải).
-- Giá trị trả về của hàm được lưu trữ trong bộ tích lũy (kết quả / tổng). */
+    - Phương thức giảm mảng xuống thành một giá trị duy nhất.
+    - Phương thức reduce() thực thi một hàm được cung cấp cho mỗi giá trị của mảng (từ trái sang phải).
+    - Giá trị trả về của hàm được lưu trữ trong bộ tích lũy (kết quả / tổng). */
 
     //Ví dụ:
     const reduced = [1, 2, 3, 4, 5].reduce((prev, next) => {
@@ -168,19 +168,19 @@
     // 10 = previous result (6 + 4)    5 = fifth array item
 
 /*9.Array.indexOf
-- dùng để tìm kiếm vị trí của phần tử trong mảng
-- KHÔNG làm thay đổi mảng ban đầu
-- trả về giá trị index ĐẦU TIÊN của mảng nếu phần tử tồn tại trong mảng
-- trả về -1 nếu phần tử không tồn tại trong mảng */
-//Ví dụ:
-var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
-console.log(beasts.indexOf('bison'));    // > 1
-console.log(beasts.indexOf('bison', 2)); // > 4
-console.log(beasts.indexOf('giraffe'));  // > -1
+    - dùng để tìm kiếm vị trí của phần tử trong mảng
+    - KHÔNG làm thay đổi mảng ban đầu
+    - trả về giá trị index ĐẦU TIÊN của mảng nếu phần tử tồn tại trong mảng
+    - trả về -1 nếu phần tử không tồn tại trong mảng */
+    //Ví dụ:
+    var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+    console.log(beasts.indexOf('bison'));    // > 1
+    console.log(beasts.indexOf('bison', 2)); // > 4
+    console.log(beasts.indexOf('giraffe'));  // > -1
 
 /*10. Array.forEach:
-- dùng để duyệt qua từng phần tử của mảng
-- trả về undefined */
+    - dùng để duyệt qua từng phần tử của mảng
+    - trả về undefined */
     //Ví dụ:
     let array = ['a', 'b', 'c'];
     array.forEach(function(element) {
@@ -193,64 +193,66 @@ console.log(beasts.indexOf('giraffe'));  // > -1
     console.log(array); // > Array ["a", "b", "c"]
 
 /*11. Array.Includes ()
-- kiểm tra xem phần tử đã cho có tồn tại trong mảng hay không
-- KHÔNG làm thay đổi mảng ban đầu
-- trả về kiểu Boolean: true nếu tìm thấy hoặc false nếu không tìm thấy */
+    - kiểm tra xem phần tử đã cho có tồn tại trong mảng hay không
+    - KHÔNG làm thay đổi mảng ban đầu
+    - trả về kiểu Boolean: true nếu tìm thấy hoặc false nếu không tìm thấy */
     //Ví dụ:
     let array = [1, 2, 3];
     console.log(array.includes(2)); // > true
     console.log(array);             // > Array [1, 2, 3]- Không làm thay đổi mảng ban đầu
 
 /*12. Array.Set
-- cho phép bạn lưu trữ dữ liệu một cách duy nhất, không trùng lặp. 
-- có thể dùng chung vs vòng lặp for..of 
-- dùng chung với nhiều methods: forEach, filter,... */
-    // ví dụ 1: 
-    const obj1 = { x: 1, y: 2 };
-    const obj2 = { x: 1, y: 2 };
+    //12.1. Định nghĩa
+    - cho phép bạn lưu trữ dữ liệu một cách duy nhất, không trùng lặp. 
+    - có thể dùng chung vs vòng lặp for..of 
+    - dùng chung với nhiều methods: forEach, filter,... */
+    
+    //12.2. Ví dụ 1
+        const obj1 = { x: 1, y: 2 };
+        const obj2 = { x: 1, y: 2 };
 
-    console.log(obj1 === obj2); //KQ: false
+        console.log(obj1 === obj2); //KQ: false
 
-    const set1 = new Set([obj1, obj2]);
-    console.log(set1.size); // KQ: 2
+        const set1 = new Set([obj1, obj2]);
+        console.log(set1.size); // KQ: 2
 
-// Khởi tạo Set rỗng bằng cách không truyền tham số vào hàm khởi tạo
-    const set1 = new Set();
-    console.log(set1); // Set(0) {}
+        // Khởi tạo Set rỗng bằng cách không truyền tham số vào hàm khởi tạo
+            const set1 = new Set();
+            console.log(set1); // Set(0) {}
 
-//Khởi tạo Set từ Array
-    const set2 = new Set([1, 2, "a", "b", 1]);
-    console.log(set2); // Set(4) {1, 2, "a", "b"}
+        //Khởi tạo Set từ Array
+            const set2 = new Set([1, 2, "a", "b", 1]);
+            console.log(set2); // Set(4) {1, 2, "a", "b"}
 
-//Khởi tạo Set từ String
-    const set3 = new Set("abcba");
-    console.log(set3); // Set(3) {"a", "b", "c"}
+        //Khởi tạo Set từ String
+            const set3 = new Set("abcba");
+            console.log(set3); // Set(3) {"a", "b", "c"}
 
-//Thêm phần tử vào Set => dùng add
-    // khởi tạo set rỗng
-    const set1 = new Set();
+        //Thêm phần tử vào Set => dùng add
+            // khởi tạo set rỗng
+            const set1 = new Set();
 
-    // thêm phần tử 1
-    set1.add(1);
-    console.log(set1); // Set(1) {1}
+            // thêm phần tử 1
+            set1.add(1);
+            console.log(set1); // Set(1) {1}
 
-    // thêm phần tử 2 (khác 1)
-    set1.add(2);
-    console.log(set1); // Set(2) {1, 2}
+            // thêm phần tử 2 (khác 1)
+            set1.add(2);
+            console.log(set1); // Set(2) {1, 2}
 
-    // thêm phần tử 3 (khác 1 và 2)
-    set1.add(1).add(2).add(3);
-    console.log(set1); // Set(3) {1, 2, 3}
+            // thêm phần tử 3 (khác 1 và 2)
+            set1.add(1).add(2).add(3);
+            console.log(set1); // Set(3) {1, 2, 3}
 
-//Xoá một phần tử trong Set
-    const set1 = new Set("abcdcba");
-    console.log(set1); // Set(4) {a, b, c, d}
+        //Xoá một phần tử trong Set
+            const set1 = new Set("abcdcba");
+            console.log(set1); // Set(4) {a, b, c, d}
 
-    set1.delete("a");
-    console.log(set1); // Set(3) {b, c, d}
+            set1.delete("a");
+            console.log(set1); // Set(3) {b, c, d}
 
-    set1.delete("d");
-    console.log(set1); // Set(2) {b, c}
+            set1.delete("d");
+            console.log(set1); // Set(2) {b, c}
 
 
 //13. Array.copyWithin:
@@ -269,20 +271,15 @@ array.copyWithin(target, start, end)
     // Lấy từ phần tử bắt đầu start là 3, end là 4
     numbers.copyWithin(0, 3) // KQ: [4, 5, 3, 4, 5]
 
-/*13. Array.Some: 
+/*14. Array.Some: 
 - kiểm tra các phần tử xem có thoả mãn điều kiện 
 - Chỉ cần 1 phần tử thoả mãn thì True */
 
-/*14. Array.Every: 
+/*15. Array.Every: 
 - kiểm tra các phần tử xem có thoả mãn điều kiện 
 - TẤt cả phần tử phải thoả mãn thì True */
 
-/*19. CallBack
-- giúp đảm bảo rằng một code nhất định sẽ không thực thi trừ khi một code khác hoàn thành thực thi. 
-- synchronous (xử lý đồng bộ) và asynchronous (xử lý không đồng bộ).
-- thường hay dùng chung Indexof, findindex*/
-
-//20. Thêm và xoá index trong array
+//16. Thêm và xoá index trong array
   /*20.1. Thêm index vào array:
     - Thêm vào đầu array:  
         + Array.unshift
@@ -301,58 +298,140 @@ array.copyWithin(target, start, end)
   /*20.3. Thêm và xoá bất kỳ index trong array
         + Array.splice
         + Array.prototype.splice(): chèn hoặc xóa đi một hay nhiều phần tử. */
-  //Ví dụ 1:
-  const fruits = ["Banana", "Orange", "Apple", "Mango"];
-  fruits.splice(2, 0, "Lemon", "Kiwi"); //KQ: Banana,Orange,Lemon,Kiwi,Apple,Mango
-    //Giải thích:
-    // The first parameter (2): xác định số lượng  index thêm vào
-    // The second parameter (0): xác định số lượng index phải xoá đi
-    // Lemon, Kiwi thêm vào, và không có index nào bị xoá
-  
-    //Ví dụ 2:
-  const fruits = ["Banana", "Orange", "Apple", "Mango"];
-  fruits.splice(2, 2, "Lemon", "Kiwi"); 
-    /*KQ: 
-    - Array mới: Banana,Orange,Lemon,Kiwi
-    - Có 2 index bị xoá: Apple,Mango */
-  
-    //Ví dụ 3:
-  const fruits = ["Banana", "Orange", "Apple", "Mango"];
-  fruits.splice(0, 1);
-    //KQ: Array mới: Orange,Apple,Mango (xoá 1 index, không có index nào thêm vào array)
-  
+        //Ví dụ 1:
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(2, 0, "Lemon", "Kiwi"); //KQ: Banana,Orange,Lemon,Kiwi,Apple,Mango
+            //Giải thích:
+            // The first parameter (2): xác định số lượng  index thêm vào
+            // The second parameter (0): xác định số lượng index phải xoá đi
+            // Lemon, Kiwi thêm vào, và không có index nào bị xoá
+    
+        //Ví dụ 2:
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(2, 2, "Lemon", "Kiwi"); 
+            /*KQ: 
+            - Array mới: Banana,Orange,Lemon,Kiwi
+            - Có 2 index bị xoá: Apple,Mango */
+    
+        //Ví dụ 3:
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(0, 1);
+            //KQ: Array mới: Orange,Apple,Mango (xoá 1 index, không có index nào thêm vào array)
+
+
 /*21. Function "Bind"- Ràng buộc */
-    this.firstName = "Minh";
-    this.lastName = "Thu";
-    const teacher = {
-    firstName = "Minh";
-    lastName = "Thảo";
-    getFullName () {
-        return (`${this.firstName} ${this.lastName}`)
-    }
-    }
-    const student = {
-    firstName = "Đặng";
-    lastName = "Sơn";
-    }
-    //Trường hợp 1:
+    //1. Định nghĩa:
+    //là một phương thức của đối tượng hàm (function object) 
+    //được sử dụng để tạo ra một hàm mới có `this` được chỉ định là một giá trị cụ thể và các tham số khác được truyền trước đó.
+
+    //2. Ví dụ 1:
+    const person = {
+        fullName: function(city, country) {
+          return `${this.firstName} ${this.lastName}, ${city}, ${country}`;
+        }
+      };
+      
+      const person1 = {
+        firstName: "John",
+        lastName: "Doe"
+      };
+      
+      const person2 = {
+        firstName: "Alice",
+        lastName: "Wonderland"
+      };
+      
+      const personFullName1 = person.fullName.bind(person1, "New York");
+      console.log(personFullName1("USA")); //John Doe, New York, USA
+      //gọi `personFullName1("USA")`, giá trị `this` sẽ trỏ tới `person1` và hai tham số `city` và `country
+      
+      const personFullName2 = person.fullName.bind(person2, "London");
+      console.log(personFullName2("UK")); //Alice Wonderland, London, UK      
+      // gọi `personFullName2("UK")`, giá trị `this` sẽ trỏ tới `person2` và hai tham số `city` và `country`
+
+      //Comment:
+      //Sử dụng `bind()` để tạo một hàm mới từ hàm `fullName` đã được ghi đè giá trị `this` sang `person1` và `person2`.
+      
+    //3. Ví dụ 2:
+        this.firstName = "Minh";
+        this.lastName = "Thu";
+        
+        const teacher = {
+            firstName = "Minh";
+            lastName = "Thảo";
+            getFullName () {
+                return (`${this.firstName} ${this.lastName}`)
+            }
+        }
+        
+        const student = {
+        firstName = "Đặng";
+        lastName = "Sơn";
+        }
+    
+        //Trường hợp 1:
         console.log (teacher.getFullName()) //KQ: Minh Thảo- "this" trỏ về object "teacher"
 
-    //Trường hợp 2:
+        //Trường hợp 2:
         const getTeacherName = teacher.getFullName //getFullName không có dấu gọi hàm "()" 
         console.log (getTeacherName == teacher.getFullName) //KQ: True
         console.log (getTeacherName) //Kq: Minh Thu
-    //Commment: "this" trở về global (window) do getTeacherName không có dấu "." đằng trước 
+        //Commment: "this" trở về global (window) do getTeacherName không có dấu "." đằng trước 
 
 
-    //Trường hợp 3: Tuy nhiên muốn cho getTeacherName thành "Minh Thảo" => dùng "bind"
+        //Trường hợp 3: Tuy nhiên muốn cho getTeacherName thành "Minh Thảo" => dùng "bind"
         const getTeacherName = teacher.getFullName.bind (teacher) //ràng buộc "teacher"
         console.log (getTeacherName) //KQ: Minh Thảo
 
-    //Trường hợp 4: 
+        //Trường hợp 4: 
         const getTeacherName = teacher.getFullName.bind (student) //ràng buộc "student"
         console.log (getTeacherName === teacher.getFullName) //KQ= False- vùng mới
         console.log (getTeacherName) //KQ: Đặng Sơn
+
+//30. Object.assign 
+    //1. Định nghĩa:
+        //là một phương thức 
+        //cho phép sao chép các giá trị từ một hay nhiều đối tượng (sources objects) vào đối tượng đích (target object). 
+        //Nó trả về đối tượng đích đã được cập nhật.
+    //2. Cú pháp:
+         Object.assign(target, ...sources)
+        //`target`: đối tượng đích cần cập nhật.
+        //`sources`: các đối tượng nguồn cần sao chép giá trị từ đó.
+
+    //3. Ví dụ 1:
+        const target = { a: 1, b: 2 };
+        const source = { b: 4, c: 5 };
+
+        const result = Object.assign(target, source); //gộp `source` vào `target`.
+
+        console.log(target); // { a: 1, b: 4, c: 5 }
+        console.log(result); // { a: 1, b: 4, c: 5 } 
+    //4, Ví dụ 2:
+        let obj1 = { a: 1, b: 2 };
+        let obj2 = { b: 2, c: 4 };
+        
+        let obj3 = Object.assign(obj1, obj2);
+        
+        console.log(obj3); // Object: {a: 1, b: 2, c: 4}
+        console.log(obj1); // Object: {a: 1, b: 2, c: 4}
+
+
+    //5. Ví dụ 3: Gộp hai đối tượng thành một đối tượng mới
+        let obj1 = { a: 1, b: 2};
+        let obj2 = { c: 3, d: 4};
+
+        let obj3 = Object.assign({}, obj1, obj2);
+
+        console.log(obj3); // { a: 1, b: 2, c: 3, d: 4 }
+    
+    //6. Ví dụ 4: Thay đổi giá trị một thuộc tính của đối tượng
+        let obj1 = { a: 1, b: 2 };
+        let obj2 = { b: 3, c: 4 };
+        
+        Object.assign(obj1, obj2);
+        
+        console.log(obj1); // { a: 1, b: 3, c: 4 }
+    
 
 //-----------------------------------------------------------------------------------------------------------------------------
 //1. PHÂN BIỆT FIND >< FILTER trong Javascript
