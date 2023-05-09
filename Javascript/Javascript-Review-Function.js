@@ -16,15 +16,15 @@
             2/ 2 inputs; no output
             3/ No input; 1 output
             4/ 2 inputs. 1 output */
-/*2. Khai báo hàm - Function declaration
-  - Dùng "function"
-  - Tên hàm
-  - Danh sách các tham số truyền vào hàm, được đặt trong ngoặc đơn và cách nhau bởi dấu phẩy.
-  - Các câu lệnh của JavaScript để tạo ra một hàm, được đặt trong ngoặc nhọn {...}.
-  */
-  function add(num1, num2) {
-    return num1 + num2;
-  }
+//2. Khai báo hàm - Function declaration
+  // - Dùng "function"
+  // - Tên hàm
+  // - Danh sách các tham số truyền vào hàm, được đặt trong ngoặc đơn và cách nhau bởi dấu phẩy.
+  // - Các câu lệnh của JavaScript để tạo ra một hàm, được đặt trong ngoặc nhọn {...}.
+  //Ví dụ:
+    function add(num1, num2) {
+      return num1 + num2;
+    }
 
 //3. Biểu thức hàm (Hàm trong biến)-Function expression
   var add = function (num1, num2) {
@@ -47,14 +47,14 @@
   greeting(myName); //KQ: Thy
   greeting(myName2); //Kq: abc
   
-/* 5. Return trong function
-  - hàm sẽ ngừng thực thi và trả về giá trị sau lệnh "return".
-  - phải được đặt trong scope */
+//5. Return trong function
+  // - hàm sẽ ngừng thực thi và trả về giá trị sau lệnh "return".
+  // - phải được đặt trong scope 
   //Ví dụ 1:
-  let x = myFunction(4, 3);
-  function myFunction(a, b) {
-      return a * b;
-  } //KQ: 12
+    let x = myFunction(4, 3);
+    function myFunction(a, b) {
+        return a * b;
+    } //KQ: 12
 
   //Ví dụ 2: Nếu x  = 1 => gặp return1 => trả về true; nếu không thì return2 trả về false
   function myFunction(x) {
@@ -68,8 +68,10 @@
 /*6 Function rút gọn (dùng ký hiệu "=>")
   // (1) Không có tham số
   () => { ... }
+
   //( 2) Có 1 tham số
   param => { ... }
+  
   // (3) Dạng tổng quát
   (param1, param2) => { ... }
 
@@ -83,6 +85,7 @@
   let x = function() {                                                        let x = a => {
     console.log("Xin Chào");                                                    console.log(a);                                     
   }                                                                           }
+  
   3/
   let x = function(a, b) {                                                    let x = (a,b) => {
     return a + b;                                                               let x = (a,b) => {
