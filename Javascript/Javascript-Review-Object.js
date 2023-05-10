@@ -102,7 +102,31 @@
         console.log (Porsche.name) //KQ: Porsche
 
 
-//6. 
+//6. "Bind" trong Object
+    //1. Định nghĩa
+    // dùng để ràng buộc `this` cho các phương thức (method) của một đối tượng (object).
+    // giúp thiết lập giá trị cho `this` của phương thức đó để đảm bảo nó trỏ đúng đến đối tượng cha của nó.
+    
+    //2. Ví dụ:
+    const person = {
+        firstName: 'John',
+        lastName: 'Doe',
+        fullName: function() {
+          console.log(this.firstName + ' ' + this.lastName);
+        }
+      };
+      
+      const person2 = {
+        firstName: 'Jane',
+        lastName: 'Doe'
+      };
+      
+      const printFullName = person.fullName.bind(person2);
+      printFullName(); // Jane Doe
+
+    //Comment
+    //`bind()` để ràng buộc `this` của phương thức `fullName()` của đối tượng `person` với đối tượng `person2`
+    //Gọi `printFullName()`, bind() ràng buộc "this" của `person` cho `person2`
 
 
 //7.
@@ -122,17 +146,4 @@
 
 
 
-//Ví dụ 6: Arrow
-const person = {
-  name:'hue',
-  getName: function(){
-      return this.name
-   }
-}
-person.getName() // "this" thể hiện object - person => KQ: 'hue'
 
-const getNamePerson = person.getName()
-getNamePerson() // sai -> not function -> this trỏ tới object window 
-
-// Cách giải quyết nó : dùng "Bind"
-const getNamePerson = person.getName.bind(person) // KQ = hue

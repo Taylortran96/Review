@@ -610,14 +610,32 @@ let hello = `Hello ${year}`;
 //15. Destructuring
   //1. Định nghĩa:
       //cho phép chúng ta trích xuất các giá trị từ các đối tượng (object) hoặc mảng (array) và gán chúng vào các biến riêng lẻ.
+      //gán các giá trị từ mảng hoặc đối tượng cho các biến nhanh chóng và tiện lợi.
+  
+  //2. Thuộc tính
+    //1. Nhiều biến được gán cho cùng một giá trị trong 1 destructuring
+      //giá trị đó sẽ được gán cho mỗi biến mà không bị ghi đè lên giá trị của biến khác.
+    
+    //2. có nhiều biến trùng nhau được gán cho cùng một thuộc tính của đối tượng
+      //giá trị đó cũng sẽ được gán cho mỗi biến một cách riêng biệt
+      //Ví dụ:
+      const person = { name: 'John', age: 30 };
 
-  //2. Ví dụ 1: Object
+      const { name, age, name: nameCopy } = person;
+      
+      console.log(name);      // 'John'
+      console.log(age);       // 30
+      console.log(nameCopy);  // 'John'
+    
+    //3. Destructing cho object dùng {}; cho Array dùng []
+  
+  //4. Ví dụ 1: Object
     const{name,price} = car;
     if (name === "honda" && price >= 2000){
         alert ("Bạn được khuyến mãi")
     }
 
-  //3. Ví dụ 2: Object
+  //5. Ví dụ 2: Object
     // Khai báo đối tượng
     const myObject = { name: 'John', age: 30 };
 
@@ -629,7 +647,7 @@ let hello = `Hello ${year}`;
     console.log(age); // Kết quả: 30
     console.log(job); // Kết quả: 'developer'
 
-  //4. Ví dụ 3: Object
+  //6. Ví dụ 3: Object
     const person = {
         name: 'John Doe',
         age: 30,
@@ -653,7 +671,7 @@ let hello = `Hello ${year}`;
     console.log(city); // Output: 'New York'
     console.log(state); // Output: 'NY'
 
-  //5.Ví dụ 4: Array (theo vị trí)
+  //7.Ví dụ 4: Array (theo vị trí)
     let cStudents = [10,20,40,60];
     let [sTeam1, sTeam2, sTeam3,sTeam4] = cStudents;
     if (sTeam1 < 0){
@@ -661,30 +679,66 @@ let hello = `Hello ${year}`;
         sTeam2 += 10;
     }
   
-  //6. Ví dụ 5: Array (theo vị trí, sử dụng Spread operator)
+  //8. Ví dụ 5: Array (theo vị trí, sử dụng Spread operator)
     const myArray = ['apple', 'banana', 'orange', 'pear', 'kiwi'];
     const [fruit1, fruit2, ...rest] = myArray;
     console.log(fruit1); // Kết quả: 'apple'
     console.log(fruit2); // Kết quả: 'banana'
     console.log(rest); // Kết quả: ['orange', 'pear', 'kiwi']
 
-  //7. Ví dụ 6: Array (Trích xuất các giá trị trong mảng)
+  //9. Ví dụ 6: Array (Trích xuất các giá trị trong mảng)
     const numbers = [1, 2, 3];
     const [a, b, c] = numbers;
     console.log(a); // Output: 1
     console.log(b); // Output: 2
     console.log(c); // Output: 3
 
-  //8. Ví dụ 7: Array (hoán đổi phần tử)
+  //10. Ví dụ 7: Array (hoán đổi phần tử)
     const x = true;
     const y = false;
     [x,y] = [y, x]
     console.log (x) //KQ: false
     console.log (y) //KQ: true
 
-  //9. Ví dụ 8: Skipping items
+  //11. Ví dụ 8: Skipping items
     const [ ,b] = [123,'seconds',true];
     console.log(b) //KQ: seconds 
+  
+  //12. Ví dụ 9:
+    // Destructuring đối tượng
+      const person = {
+        name: 'John',
+        age: 30,
+        address: {
+          city: 'New York',
+          country: 'USA'
+        }
+      };
+
+      const { name, age, address: { city, country } } = person;
+
+      console.log(name);    // 'John'
+      console.log(age);     // 30
+      console.log(city);    // 'New York'
+      console.log(country); // 'USA'
+
+    // Destructuring mảng
+      const numbers = [1, 2, 3, 4, 5];
+
+      const [first, second, ...rest] = numbers;
+
+      console.log(first);  // 1
+      console.log(second); // 2
+      console.log(rest);   // [3, 4, 5]
+
+  // Ví dụ 13: Gán các thuộc tính của một đối tượng cho các biến
+    let {x, y, z} = {x: 2, y: 2, z: 2};
+    console.log(x); // 2
+    console.log(y); // 2
+    console.log(z); // 2
+  
+
+
 
 //16. "This" trong Function và Object
     //Cách nhớ: "this" thể hiện đối tượng thể hiện method đó (đối tượng trước dấu ".") 
