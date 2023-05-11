@@ -73,7 +73,7 @@
         newDiv.textContent = 'This is a new div element.'; //Thêm nội dung phần tử
         //KQ trong HTML: <div class= "box"> This is a new div element. </div>
 
-        //Thêm  id = "container" vào div => appendchild
+        //Thêm  id = "container" vào phần tử "newDiv" => appendchild
         const container = document.getElementById('container');
         container.appendChild(newDiv);
 
