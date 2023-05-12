@@ -59,8 +59,8 @@
         // See all the programs using the file or folder
             //C:\Users\SONY\OneDrive\Documents\GitHub\Class-Code-Intensive\Practices
         // right-click vào link and end-process
-    //5.
-    //6.
+    //5.Lối "ERROR in Plugin "react" was conflicted between "package.json » eslint-config-react-app »..." => Vào "package.JSON" => Ctrl + S
+    //6. Cách mở reactjs trên trình duyệt web => terminal => cd tới folder react => Nhập "npm start"
     //7.
     //8.
     //9.
