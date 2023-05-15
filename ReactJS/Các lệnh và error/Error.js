@@ -37,11 +37,11 @@
         // Click on the search icon
         // See all the programs using the file or folder
             //C:\Users\SONY\OneDrive\Documents\GitHub\Class-Code-Intensive\Practices
-        // right-click vào link and end-process
+        // right-click vào link and end-process => Tắt CPU tab
     //5.Lối "ERROR in Plugin "react" was conflicted between "package.json » eslint-config-react-app »..." => Vào "package.JSON" => Ctrl + S
     //6. Cách mở reactjs trên trình duyệt web => terminal => cd tới folder react => Nhập "npm start"
     //7. Cách tạo package.json => npm init -y or npm install express
-    //8.
+    //8. Lỗi "Deleting generated file... package.json" => npm i -g create-react-app và npx create-react-app web-design
     //9.
     //10.
     //11.
