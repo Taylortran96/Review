@@ -25,47 +25,47 @@
         //cung cấp "then" function, giúp chúng ta thực hiện các câu lệnh tiếp theo sau khi tác vụ bất đồng bộ hoàn thành
 
     //3. Ví dụ cơ bản:
-    fetch('url')
-    .then(response => {
-        //handle response            
-        console.log(response);
-    })
-    .then(data => {
-        //handle data
-        console.log(data);
-    })
-    .catch(error => {
-        //handle error
-    });
+        fetch('url')
+        .then(response => {
+            //handle response            
+            console.log(response);
+        })
+        .then(data => {
+            //handle data
+            console.log(data);
+        })
+        .catch(error => {
+            //handle error
+        });
 
     //4. Ví dụ 1:
-    import {useState} from 'react'
+        import {useState} from 'react'
 
-    const App = () => {
+        const App = () => {
 
-        const [pokemons, setPokemons] = useState([])
-        
-        const handleFetchPokemon = () => {
-            fetch('https://pokeapi.co/api/v2/pokemon')
-                .then((response) => {
-                    return response.json()
-                }).then((data) => {
-                    console.log(data)
-                    setPokemons(data.result)
-                })
-        }	
+            const [pokemons, setPokemons] = useState([])
+            
+            const handleFetchPokemon = () => {
+                fetch('https://pokeapi.co/api/v2/pokemon')
+                    .then((response) => {
+                        return response.json()
+                    }).then((data) => {
+                        console.log(data)
+                        setPokemons(data.result)
+                    })
+            }	
 
-        return (
-            <div>
-                <button onClick={handleFetchPokemon}>Fetch Pokemon</button>
-                <ul>
-                    {pokemons.map(pokemon => {
-                        return <li key={pokemon.url}>{pokemon.name}</li>
-                    })}
-                </ul>
-            </div>
-        )
-    }
+            return (
+                <div>
+                    <button onClick={handleFetchPokemon}>Fetch Pokemon</button>
+                    <ul>
+                        {pokemons.map(pokemon => {
+                            return <li key={pokemon.url}>{pokemon.name}</li>
+                        })}
+                    </ul>
+                </div>
+            )
+        }
 
     //5. Ví dụ 2: với Json
     fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json()).then(data => {

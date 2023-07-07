@@ -22,7 +22,21 @@
         // B.Import
             import { FaBeer } from 'react-icons/fa';
             import { FaBeer } from "@react-icons/all-files/fa/FaBeer";
-        //
+    //3. React-Toastify
+        //A. Cài cmd
+            npm install --save react-toastify
+        //b. Import
+            import { ToastContainer } from "react-toastify";
+    //4. react-router-dom
+        //A. Cài cmd
+            npm install react-router-dom@6
+        //b. Import
+            import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+    
+    //5. React Bootstrap
+        //A. Cài cmd
+
+        //B. Import
 
 //3.Trong Visual Studio code : Terminal (Ctrl + Shift + `)
     //1. Cài đặt tool: npm install -g create-react-app 
@@ -42,7 +56,12 @@
     //6. Cách mở reactjs trên trình duyệt web => terminal => cd tới folder react => Nhập "npm start"
     //7. Cách tạo package.json => npm init -y or npm install express
     //8. Lỗi "Deleting generated file... package.json" => npm i -g create-react-app và npx create-react-app web-design
-    //9.
+    //9. Lỗi không thể npm project template dc
+        npm install --save react@latest 
+        npm install -g 
+        npm-check-updates 
+        npm audit fix --force
+        npm start
     //10.
     //11.
     //12.

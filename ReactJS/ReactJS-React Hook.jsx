@@ -830,6 +830,7 @@
             // 2. Các thay đổi liên quan đến hiệu suất được áp dụng không chính xác thậm chí có thể gây hại cho hiệu suất. Sử dụng React.memo () một cách khôn ngoan.
             // 3. Component của bạn là class component
             // 4. Component của bạn đã được memo bởi một HOC khác, ví dụ connect() của Redux    
+
         //4. Ví dụ 1:
             import { useState, memo } from "react";
 
@@ -1057,9 +1058,10 @@
                 //mỗi lần component re-render nó sẽ kiểm tra giá trị tham số truyền vào function nếu giá trị đó không thay đổi, thì return value đã caching trong memory
                 //nếu giá trị tham số truyền vào thay đổi, nó sẽ thực hiện tính toán lại vào trả về value, sao đó caching lại value cho những lần re-render tiếp theo.
 
-//6. React Hook: useCallback + useMemo
+//6. React Hook: useCallback (phân biệt vs useMemo)
     //1. Định nghĩa
         //giúp mình tạo ra một memoized callback và chỉ tạo ra callback mới khi dependencies thay đổi.
+        //Tạo ở ngoài component
 
     //2. Bao gồm 2 đối số và return về memoized callback
         //1. Function
@@ -1091,17 +1093,15 @@
             import Content from './Content'
             
             function App() {
-            
-            const [number, setNumber] = useState(0)
-            
-            const handleIncrease = () => setNumber(number => number + 1)
-            
-            return (
-                <div>
-                <h1>{number}</h1>
-                <Content onIncrease={handleIncrease} />
-                </div>
-            )
+                const [number, setNumber] = useState(0)  
+                const handleIncrease = () => setNumber(number => number + 1)
+             
+                return (
+                    <div>
+                    <h1>{number}</h1>
+                    <Content onIncrease={handleIncrease} />
+                    </div>
+                )
             }
             
             export default App;
@@ -1112,29 +1112,30 @@
                 //Đây là kiến thức về reference type của JS
                 //mỗi lần App.js được re-render thì nó tạo ra các hàm handleIncrease khác nhau. 
                 //Khi truyền handleIncrease làm prop của component Content thì React memo sẽ hiểu là các hàm handleIncrease khác nhau và vẫn quyết định re-render. Đây là điều không cần thiết.
-    //2. Dùng useCallback
-            //App.js
-            import { useCallback, useState } from "react"
-            import Content from './Content'
-            
-            function App() {
-            
-                const [number, setNumber] = useState(0)
+
+        //2. Dùng useCallback
+                //App.js
+                import { useCallback, useState } from "react"
+                import Content from './Content'
                 
-                const handleIncrease = useCallback(() => {
-                    setNumber(number => number + 1)
-                }, [])
-            
-                return (
-                    <div>
-                    <h1>{number}</h1>
-                    <Content onIncrease={handleIncrease} />
-                    </div>
-                )
-                }
-            
-            export default App;
-            //KQ: ngoài lần đầu Content được monnted vào DOM thì mỗi lần click component Content không hề bị re-render nữa.
+                function App() {
+                
+                    const [number, setNumber] = useState(0)
+                    
+                    const handleIncrease = useCallback(() => {
+                        setNumber(number => number + 1)
+                    }, [])
+                
+                    return (
+                        <div>
+                        <h1>{number}</h1>
+                        <Content onIncrease={handleIncrease} />
+                        </div>
+                    )
+                    }
+                
+                export default App;
+                //KQ: ngoài lần đầu Content được monnted vào DOM thì mỗi lần click component Content không hề bị re-render nữa.
 
     //4. Lưu ý:
         // Không nên lạm dụng useCallback
