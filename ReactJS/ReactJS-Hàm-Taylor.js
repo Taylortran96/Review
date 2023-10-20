@@ -63,6 +63,7 @@
                 ReactDOM.render(<App />, document.getElementById('root')); 
 
 
+
         //4. Ví dụ 3:
             <body>
                 <div id="root"></div>
@@ -73,26 +74,8 @@
                 </script>
             </body>
 
-//B. Xử lý FORM với các function: handleChange, handleSubmit, event.preventDefault, onChange, onSubmit, ...
-    //1. Định nghĩa:
-    // Nếu dữ liệu được xử lý bởi DOM, chúng ta gọi là `uncontrollerd components`
-    // Nếu dữ liệu được xử lý bởi components, chúng ta gọi chúng là `controlled componens`
+//B. COMPONENTDIMOUNT()
 
-    //2. Các sự kiện vào form (Event.target) 
-        //1. OnClick: người dùng click vào (nhấp chuột)
-        //2. Onchange (trong input): người dùng thay đổi nội dung trong input
-        //3. onSubmit (trong submit form): người dùng gửi nội dung của form 
-        //4.validationForm(): khi xây dựng hàm kiểm tra email
 
-        //5.changeInputValue():  lấy giá của input sau đó cập nhật vào state.
 
-    //3. Event.target
-    handleChangeInput = (event) => {
-        let name = event.target.name;
-        let val = event.target.value;
-        if (name === "age") {
-            if (!Number(val)) {
-              console.log("Your age must be a number");
-            }
-        }
-    }
+//C. CONSTRUCTOR()
